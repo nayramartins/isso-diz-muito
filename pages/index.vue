@@ -4,7 +4,7 @@
       <div class="home-title">
         <div class="home-title__box">
           <h1>ISSO DIZ MUITO</h1>
-          <h2>Se faz alguém, nem que seja uma única pessoa, se sentir mal, não deveria caber na nosso vocabulário. O que se tornou popular há alguns anos, pode ser ofensivo hoje. O que era só uma piada ontem, pode pode ser um símbolo de homofobia, transfobia, racismo, falta de consciência de classe, xenofobia, gordofobia ou capacitismo.</h2>
+          <h2>Se faz alguém, nem que seja uma única pessoa, se sentir mal, não deveria caber no nosso vocabulário. O que se tornou popular há alguns anos, pode ser ofensivo hoje. O que era só uma piada ontem, pode pode ser um símbolo de homofobia, transfobia, racismo, falta de consciência de classe, xenofobia, gordofobia ou capacitismo.</h2>
         </div>
       </div>
       <div class="home-snippet">
@@ -13,13 +13,13 @@
             <h3>"Homossexualismo"</h3>
             <p>As duas palavras, segundo o dicionário, estão corretas. Mas, você sabia que o prefixo ”-ismo” é usado também para designar doenças?</p>
 
-            <button class="home-snippet__list--see-more">ver mais >></button>
+            <NuxtLink to="/homossexualismo" class="home-snippet__list--see-more">ver mais >></NuxtLink>
           </li>
           <li>
             <h3>"Dar uma de joão-sem-braço"</h3>
             <p>Uma pessoa que se esquiva de fazer algo dando desculpas que não justificam é bem diferente de uma pessoa que não faz determinada ação por uma deficiência, certo?</p>
 
-            <button class="home-snippet__list--see-more">ver mais >></button>
+            <NuxtLink to="/homossexualismo" class="home-snippet__list--see-more">ver mais >></NuxtLink>
           </li>
         </ul>
       </div>
@@ -34,7 +34,7 @@ export default {}
 
 <style>
 .home {
-  background-color: #EB8762;
+  background-color: #ec9372;
   height: 100vh;
 }
 
@@ -46,9 +46,20 @@ export default {}
   height: calc(100vh - 50px);
 }
 
+.home-title {
+    background-image: url('../assets/images/dots-white-bg.svg'),
+      url('../assets/images/dots-orange-dark-bg.svg');
+    background-position: 0 580px, right 30px;
+    height: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+
 .home-title__box {
   background-color: #363636;
-  padding: 120px;
+  border-radius: 0 10px 10px 0;
+  padding: 112px;
 }
 
 .home-title__box h1 {
@@ -67,7 +78,7 @@ export default {}
 }
 
 .home-snippet {
-  margin: 12px 64px;
+  margin: 12px 112px 12px 64px;
 }
 
 .home-snippet__list {
@@ -78,6 +89,7 @@ export default {}
   font-size: 18px;
   font-style: italic;
   font-weight: 700;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
@@ -99,13 +111,14 @@ export default {}
 }
 
 .home-snippet__list--see-more {
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid #2F2F2F;
+  border-bottom: 2px solid #000000;
+  color: #000000;
+  display: inline-block;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
   font-weight: 600;
   margin-top: 16px;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
