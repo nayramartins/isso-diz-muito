@@ -89,6 +89,18 @@ export default {
 
 .home-snippet__list {
   border-left: 2px solid #363636;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.home-snippet__list::-webkit-scrollbar {
+  background: transparent;
+  width: 4px;
+}
+
+.home-snippet__list::-webkit-scrollbar-thumb {
+  background: #c36e4f;
+  border-radius: 12px;
 }
 
 .home-snippet__list h3 {
