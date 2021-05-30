@@ -12,10 +12,14 @@
           <li>
             <h3>"Homossexualismo"</h3>
             <p>As duas palavras, segundo o dicionário, estão corretas. Mas, você sabia que o prefixo ”-ismo” é usado também para designar doenças?</p>
+
+            <button class="home-snippet__list--see-more">ver mais >></button>
           </li>
           <li>
             <h3>"Dar uma de joão-sem-braço"</h3>
             <p>Uma pessoa que se esquiva de fazer algo dando desculpas que não justificam é bem diferente de uma pessoa que não faz determinada ação por uma deficiência, certo?</p>
+
+            <button class="home-snippet__list--see-more">ver mais >></button>
           </li>
         </ul>
       </div>
@@ -39,7 +43,7 @@ export default {}
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 50% 50%;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 50px);
 }
 
 .home-title__box {
@@ -50,6 +54,9 @@ export default {}
 .home-title__box h1 {
   color: #EB8762;
   font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 24px;
 }
 
 .home-title__box h2 {
@@ -68,12 +75,55 @@ export default {}
 }
 
 .home-snippet__list h3 {
+  font-size: 18px;
   font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.home-snippet__list li {
+  padding: 24px 0;
+  position: relative;
+}
+
+.home-snippet__list li::after {
+  background-image: url('../assets/images/dot-single.svg');
+  background-repeat: no-repeat;
+  bottom: -12px;
+  content: '';
+  left: 50%;
+  margin-left: -26px;
+  height: 4px;
+  position: absolute;
+  width: 52px;
+}
+
+.home-snippet__list--see-more {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #2F2F2F;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+  text-transform: uppercase;
 }
 
 footer {
   color: #2F2F2F;
   font-size: 14px;
+  padding-bottom: 32px;
   text-align: center;
+}
+
+@media (max-width: 1080px) {
+  .home {
+    height: auto;
+  }
+
+  .home-content {
+    grid-template-columns: 100%;
+    height: auto;
+  }
 }
 </style>
