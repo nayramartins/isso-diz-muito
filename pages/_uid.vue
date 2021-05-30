@@ -9,18 +9,15 @@
         </h1>
 
         <div class="generic-page__sidebar--list">
-          <h3>prefira falar/escrever</h3>
+          <h3>{{ $prismic.asText(document.data.sidebar_title) }}</h3>
 
-          <ul>
-            <li>Homossexualidade</li>
-          </ul>
+          <prismic-rich-text :field="document.data.replace_options" />
         </div>
       </aside>
       <section class="generic-page__content">
-        <h2>"Homossexualismo"</h2>
+        <h2>"{{ $prismic.asText(document.data.title) }}"</h2>
 
-        <h3>Por que não usar essa expressão?</h3>
-        <p>As duas palavras, segundo o dicionário, estão corretas. Mas, você sabia que o prefixo ” -ismo” é usado para designar doenças? Infelizmente, antigamente a homossexualidade já foi considerada uma doença psíquica. Mas, em 1973 ela foi retirada do CID (Código Internacional de Doenças) e, em 1990, riscada da lista da OMS (Organização Mundial de Saúde). Assim, quando a palavra ”homossexualismo” foi cunhada, ela veio com essas conotações patológicas. Sabemos também que o prefixo “ - ismo” não tem essa única função. De toda forma, é como sempre trazemos aqui para as nossas análise: se tem um significado histórico tão doloroso para algumas pessoas e, se temos alternativas a essa palavra, por que não adotá -las no dia a dia?</p>
+        <prismic-rich-text :field="document.data.description" />
     </section>
     </section>
     <footer>Juliana Bezerra • Todos os direitos reservados • 2020 - 2021</footer>
@@ -29,7 +26,15 @@
 
 <script>
 export default {
+  async asyncData({ $prismic, params, error }) {
+    const document = await $prismic.api.getByUID('page', params.uid)
 
+    if (document) {
+      return { document }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  }
 }
 </script>
 

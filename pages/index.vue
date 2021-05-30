@@ -9,17 +9,11 @@
       </div>
       <div class="home-snippet">
         <ul class="home-snippet__list">
-          <li>
-            <h3>"Homossexualismo"</h3>
+          <li v-for="result in document.results" :key="result.id">
+            <h3>"{{ $prismic.asText(result.data.title) }}"</h3>
             <p>As duas palavras, segundo o dicionário, estão corretas. Mas, você sabia que o prefixo ”-ismo” é usado também para designar doenças?</p>
 
-            <NuxtLink to="/homossexualismo" class="home-snippet__list--see-more">ver mais >></NuxtLink>
-          </li>
-          <li>
-            <h3>"Dar uma de joão-sem-braço"</h3>
-            <p>Uma pessoa que se esquiva de fazer algo dando desculpas que não justificam é bem diferente de uma pessoa que não faz determinada ação por uma deficiência, certo?</p>
-
-            <NuxtLink to="/homossexualismo" class="home-snippet__list--see-more">ver mais >></NuxtLink>
+            <NuxtLink :to="result.uid" class="home-snippet__list--see-more">ver mais >></NuxtLink>
           </li>
         </ul>
       </div>
@@ -29,7 +23,19 @@
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $prismic, _, error }) {
+    const document = await $prismic.api.query(
+      $prismic.predicates.at('document.type', 'page')
+    )
+
+    if (document) {
+      return { document }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  }
+}
 </script>
 
 <style>

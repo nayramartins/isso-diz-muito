@@ -35,7 +35,15 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/prismic'
   ],
+  prismic: {
+    endpoint: 'https://issodizmuito.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver',
+    htmlSerializer: '@/plugins/html-serializer',
+    modern: true
+    /* see configuration for more */
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
