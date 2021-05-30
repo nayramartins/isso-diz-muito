@@ -30,6 +30,7 @@ export default {}
 
 <style>
 .home {
+  background-color: #EB8762;
   height: 100vh;
 }
 
@@ -53,8 +54,9 @@ export default {}
 
 .home-title__box h2 {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 1.5;
 }
 
 .home-snippet {
@@ -70,7 +72,7 @@ export default {}
 }
 
 footer {
-  color: #808080;
+  color: #2F2F2F;
   font-size: 14px;
   text-align: center;
 }
