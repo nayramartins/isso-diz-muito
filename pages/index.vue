@@ -11,7 +11,7 @@
         <ul class="home-snippet__list">
           <li v-for="result in document.results" :key="result.id">
             <h3>"{{ $prismic.asText(result.data.title) }}"</h3>
-            <p>As duas palavras, segundo o dicionário, estão corretas. Mas, você sabia que o prefixo ”-ismo” é usado também para designar doenças?</p>
+            <p>{{ $prismic.asText(result.data.description).slice(33, 180) }}</p>
 
             <NuxtLink :to="result.uid" class="home-snippet__list--see-more">ver mais >></NuxtLink>
           </li>
