@@ -11,7 +11,7 @@
         <ul class="home-snippet__list">
           <li v-for="result in document.results" :key="result.id">
             <h3>"{{ $prismic.asText(result.data.title) }}"</h3>
-            <p>{{ $prismic.asText(result.data.description).slice(33, 180) }}</p>
+            <p>{{ result.data.home_snippet }}</p>
 
             <NuxtLink :to="result.uid" class="home-snippet__list--see-more">ver mais >></NuxtLink>
           </li>
@@ -28,6 +28,8 @@ export default {
     const document = await $prismic.api.query(
       $prismic.predicates.at('document.type', 'page')
     )
+
+    console.log(document)
 
     if (document) {
       return { document }
