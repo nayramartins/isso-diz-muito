@@ -29,8 +29,6 @@ export default {
       $prismic.predicates.at('document.type', 'page')
     )
 
-    console.log(document)
-
     if (document) {
       return { document }
     } else {
@@ -157,6 +155,20 @@ footer {
   .home-content {
     grid-template-columns: 100%;
     height: auto;
+  }
+
+  .home-title__box {
+    border-radius: 0;
+    padding: 56px;
+  }
+
+  .home-snippet {
+    margin: 12px 36px
+  }
+
+  .home-snippet__list {
+    max-height: none;
+    padding-left: 24px;
   }
 }
 </style>
